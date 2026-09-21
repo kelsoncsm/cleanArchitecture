@@ -1,0 +1,29 @@
+### Arquivo para testar a API no VS Code (extensão REST Client) ou no Visual Studio / Rider.
+### Rode com: dotnet run --project src/Loja.Api
+
+@host = http://localhost:5000
+
+### 1) Criar um pedido de cliente VIP
+POST {{host}}/api/pedidos
+Content-Type: application/json
+
+{
+  "cliente": "Maria Silva",
+  "clienteVip": true,
+  "itens": [
+    { "produto": "Teclado", "precoUnitario": 150.00, "quantidade": 2 },
+    { "produto": "Mouse", "precoUnitario": 80.00, "quantidade": 1 }
+  ]
+}
+
+### 2) Listar pedidos
+GET {{host}}/api/pedidos
+
+### 3) Confirmar (troque pelo id devolvido no passo 1) - aplica o melhor desconto
+POST {{host}}/api/pedidos/00000000-0000-0000-0000-000000000000/confirmar
+
+### 4) Regra de negócio violada -> 422 (item com quantidade zero)
+POST {{host}}/api/pedidos
+Content-Type: application/json
+
+{ "cliente": "Joao", "clienteVip": false, "itens": [ { "produto": "Cabo", "precoUnitario": 10, "quantidade": 0 } ] }

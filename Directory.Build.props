@@ -1,0 +1,19 @@
+<Project>
+  <!--
+    POR QUE ESTE ARQUIVO EXISTE?
+    Directory.Build.props é lido automaticamente pelo MSBuild para TODOS os projetos abaixo desta pasta.
+    Assim as regras de qualidade ficam em UM lugar só (DRY), em vez de copiadas em cada .csproj.
+
+    - Nullable=enable            -> o compilador avisa onde pode ocorrer NullReferenceException (bug em tempo de compilação, não em produção).
+    - TreatWarningsAsErrors      -> warnings viram erros; evita que o "lixo" se acumule ("janelas quebradas").
+    - ImplicitUsings=enable      -> remove `using System;` e similares repetitivos (menos ruído = Clean Code).
+    - LangVersion=latest         -> usa recursos modernos do C# (records, file-scoped namespaces, pattern matching).
+  -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+</Project>

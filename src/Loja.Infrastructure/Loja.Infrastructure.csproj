@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    A Infrastructure implementa as interfaces declaradas no Domain/Application (banco, e-mail, APIs externas...).
+    Ela aponta para dentro (referencia Domain e Application), e NUNCA o contrário.
+    É aqui que futuramente entraria o Entity Framework Core / Dapper / Cosmos DB.
+  -->
+  <ItemGroup>
+    <ProjectReference Include="..\Loja.Domain\Loja.Domain.csproj" />
+    <ProjectReference Include="..\Loja.Application\Loja.Application.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    A Application só conhece o Domain (dependência aponta PARA DENTRO).
+    Os pacotes *.Abstractions trazem apenas as interfaces (ILogger, IServiceCollection), nunca uma implementação concreta:
+    dependemos de abstrações, não de detalhes (Princípio da Inversão de Dependência - o "D" do SOLID).
+  -->
+  <ItemGroup>
+    <ProjectReference Include="..\Loja.Domain\Loja.Domain.csproj" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.2" />
+  </ItemGroup>
+</Project>

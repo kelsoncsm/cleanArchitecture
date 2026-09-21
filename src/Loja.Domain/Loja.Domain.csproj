@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    REGRA DE OURO DA CLEAN ARCHITECTURE: o Domain NÃO referencia ninguém.
+    Nenhum ProjectReference, nenhum PackageReference (nada de EF, ASP.NET, Newtonsoft...).
+    Por quê? As regras de negócio são o ativo mais valioso e duradouro do sistema. Frameworks e bancos mudam;
+    se o Domain não depende deles, trocar de tecnologia nunca obriga a reescrever regra de negócio.
+  -->
+</Project>
