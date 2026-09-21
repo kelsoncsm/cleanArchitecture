@@ -21,10 +21,19 @@ builder.Services
 // para NUNCA devolver stack trace ao cliente (segurança: não vazar detalhes internos).
 builder.Services.AddProblemDetails();
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 var app = builder.Build();
 
 // Handler global: exceções inesperadas (bugs, banco fora do ar) viram um 500 padronizado, em um único lugar.
 app.UseExceptionHandler();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
 app.MapPedidos();
 

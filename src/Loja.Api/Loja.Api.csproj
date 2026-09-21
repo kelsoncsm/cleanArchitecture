@@ -7,4 +7,7 @@
     <ProjectReference Include="..\Loja.Application\Loja.Application.csproj" />
     <ProjectReference Include="..\Loja.Infrastructure\Loja.Infrastructure.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.3" />
+  </ItemGroup>
 </Project>
